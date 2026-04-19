@@ -86,6 +86,12 @@ class Monster extends Phaser.Scene {
         my.sprite.fangs.visible = false; // start with fangs hidden 
 
 
+        this.keys = this.input.keyboard.addKeys({
+            left: Phaser.Input.Keyboard.KeyCodes.A,
+            right: Phaser.Input.Keyboard.KeyCodes.D
+        });
+
+
         // Event input: smile
         this.input.keyboard.on('keydown-S', () => {
         my.sprite.smile.visible = true;
@@ -100,45 +106,22 @@ class Monster extends Phaser.Scene {
 
         });
         
-        // Event input: move left
-        this.input.keyboard.on('keydown-A', () => {
-        my.sprite.body.x -= 10;
-        my.sprite.head.x -= 10;
-        my.sprite.armLeft.x -= 10;
-        my.sprite.armRight.x -= 10;
-        my.sprite.legLeft.x -= 10;
-        my.sprite.legRight.x -= 10;
-        my.sprite.smile.x -= 10;
-        my.sprite.fangs.x -= 10;
-        my.sprite.lefteye.x -= 10;
-        my.sprite.righteye.x -= 10;
-        my.sprite.anttennaeLeft.x -= 10;
-        my.sprite.anttennaeRight.x -= 10;
-
-        });
-
-        // Event input: move right
-        this.input.keyboard.on('keydown-D', () => {
-        my.sprite.body.x += 10;
-        my.sprite.head.x += 10;
-        my.sprite.armLeft.x += 10;
-        my.sprite.armRight.x += 10;
-        my.sprite.legLeft.x += 10;
-        my.sprite.legRight.x += 10;
-        my.sprite.smile.x += 10;
-        my.sprite.fangs.x += 10;
-        my.sprite.lefteye.x += 10;
-        my.sprite.righteye.x += 10;
-        my.sprite.anttennaeLeft.x += 10;
-        my.sprite.anttennaeRight.x += 10;
-
-        });
 
 }
 
     update() {
         let my = this.my;    // create an alias to this.my for readability
+        
+        if (this.keys.left.isDown) {
+            for (let part in my.sprite) {
+                my.sprite[part].x -= 2;
+            }
+        }
 
-       
+        if (this.keys.right.isDown) {
+            for (let part in my.sprite) {
+                my.sprite[part].x += 2;
+            }
+        }
     }
 }
