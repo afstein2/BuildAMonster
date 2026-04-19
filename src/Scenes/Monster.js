@@ -65,15 +65,7 @@ class Monster extends Phaser.Scene {
     create() {
         let my = this.my;   // create an alias to this.my for readability
 
-        // Create the main body sprite
-        //
-        // this.add.sprite(x,y, "{atlas key name}", "{name of sprite within atlas}")
-        //
-        // look in spritesheet_default.xml for the individual sprite names
-        // You can also download the asset pack and look in the PNG/default folder.
         my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_greenD.png");
-        
-        
         my.sprite.armRight = this.add.sprite(this.armRightX, this.armRightY, "monsterParts", "arm_blueB.png");
         my.sprite.armLeft = this.add.sprite(this.armLeftX, this.armLeftY, "monsterParts", "arm_blueB.png");
         my.sprite.armRight.flipX = true; 
@@ -86,7 +78,6 @@ class Monster extends Phaser.Scene {
         my.sprite.smile = this.add.sprite(this.smilex, this.smiley, "monsterParts", "mouthC.png");
         my.sprite.lefteye = this.add.sprite(this.lefteyeX, this.lefteyeY, "monsterParts", "eye_angry_blue.png");
         my.sprite.righteye = this.add.sprite(this.righteyeX, this.righteyeY, "monsterParts", "eye_angry_blue.png"); 
-        //my.sprite.nose = this.add.sprite(this.nosex, this.nosey, "monsterParts", "nose_yellow.png");
         my.sprite.anttennaeLeft = this.add.sprite(this.anttennaeLeftX, this.anttennaeLeftY, "monsterParts", "detail_dark_antenna_large.png");
         my.sprite.anttennaeRight = this.add.sprite(this.anttennaeRightX, this.anttennaeRightY, "monsterParts", "detail_dark_antenna_large.png");
         my.sprite.anttennaeLeft.flipX = true;
